@@ -1,30 +1,32 @@
 # ASKQE-NLI: NLI-Based Factual Consistency Metric for AskQE
 
 ### Description
-This repository introduces an extension to the AskQE framework to evaluate translations using Natural Language Inference (NLI). 
+This repository introduces an extension to the AskQE framework to evaluate translations using **Natural Language Inference** (NLI). 
 Inspired by prior work, specifically the paper [here]([https://aclanthology.org/2021.emnlp-main.619.pdf](https://arxiv.org/abs/2104.08202)), we implement an NLI pipeline to assess the quality of translation outputs by 
 comparing the answers from the source (SRC) and backtranslated text (BT).
 
 ## Core Idea
 The evaluation metric employs a two-step process using NLI using `RoBERTa-large-MNLI` model to compare question-answer pairs from the source and backtranslation:
 
-- Premise: The concatenation of question and answer pair from the source text (SRC).
+- **Premise**: The concatenation of question and answer pair from the source text (SRC).
 
-- Hypothesis: The concatenation of question and answer pair from the backtranslation (BT).
+- **Hypothesis**: The concatenation of question and answer pair from the backtranslation (BT).
 
 The NLI model checks for entailment, contradiction, or neutrality between the premise and the hypothesis:
 
-- Entailment: The hypothesis logically follows from the premise, meaning the translation preserves the meaning of the source answer.
+- *Entailment*: The hypothesis logically follows from the premise, meaning the translation preserves the meaning of the source answer.
 
-- Contradiction: The hypothesis contradicts the premise, indicating a translation error.
+- *Contradiction*: The hypothesis contradicts the premise, indicating a translation error.
 
-- Neutral: The hypothesis is neither entailed nor contradictory to the premise, meaning the translation may be ambiguous or unclear.
+- *Neutral*: The hypothesis is neither entailed nor contradictory to the premise, meaning the translation may be ambiguous or unclear.
 
 This helps evaluate whether the translation retains the semantic meaning of the source answer or if there are discrepancies in meaning.
 
 Here is an example:
 
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f" />
+<p align="center">
+  <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f" />
+</p>
 
 ---
 
