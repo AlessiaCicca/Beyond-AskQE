@@ -1,4 +1,4 @@
-# ASKQE-MULTITURN  
+# AskQE-MultiTurn  
 ## Multi-Turn QA-Based Framework for Machine Translation Evaluation in the Biomedical Domain
 
 ### Description
