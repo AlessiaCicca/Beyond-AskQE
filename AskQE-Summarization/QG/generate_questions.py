@@ -58,19 +58,13 @@ def generate_questions(article, facts, tokenizer, model, max_new_tokens):
             eos_token_id=tokenizer.eos_token_id,
         )
 
-    response = tokenizer.decode(
-        outputs[0][input_ids.shape[-1]:],
-        skip_special_tokens=True
-    ).strip()
-
+    response = tokenizer.decode(outputs[0][input_ids.shape[-1]:], skip_special_tokens=True).strip()
+    
     try:
         parsed = ast.literal_eval(response)
         if isinstance(parsed, list):
-            return [
-                q.strip()
-                for q in parsed
-                if isinstance(q, str) and "?" in q
-            ]
+            return [q.strip() for q in parsed if isinstance(q, str) and "?" in q ]
+            
     except Exception:
         pass
 
