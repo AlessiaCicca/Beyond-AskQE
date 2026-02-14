@@ -9,7 +9,9 @@ Adaptation of the AskQE framework to the task of summarization, rather than mach
 
 Purpose: evaluate whether key facts in source documents are preserved in generated summaries.
 
-<img src="summary.png" width="500"/>
+<p align="center">
+  <img src="summary.png" width="700"/>
+</p>
 
 ## Dataset
 
