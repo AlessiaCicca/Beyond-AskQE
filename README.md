@@ -68,7 +68,7 @@ The AskQE framework addresses this by generating questions from the source text 
 ## Project Structure
 
 ```
-ASKQE-BASELINE/
+Beyond-AskQE/baseline
 ├── QA/                            #Scripts for Question Answering
 ├── QG/                            #Scripts for Question Answering  
 ├── evaluation/                    # Scripts for evaluation assessment
