@@ -88,7 +88,7 @@ Beyond-AskQE/baseline
 ```
 Arguments for the QG code are as follows:
 - --output_path: save path of output file (after question generation).
-- --prompt: QG variant (whether vanilla / semantic / atomic). All our experiments were performed with the vanilla prompt.
+- --prompt: QG variant (whether vanilla / semantic / atomic). All our experiments were performed with the vanilla (baseline) or atomic prompt.
 
 ### Back-translation
 Since the BioMQM dataset already provides MT outputs with error annotations, we only have to run backtranslation on those.
