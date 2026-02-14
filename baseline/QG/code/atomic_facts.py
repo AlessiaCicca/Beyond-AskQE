@@ -39,12 +39,12 @@ def main():
                 
                 with torch.no_grad():
                     outputs = model.generate(
-                        input_ids,
+                        input_ids["input_ids"],
                         max_new_tokens=1024,
                         eos_token_id=tokenizer.eos_token_id,
                     )
 
-                response_ids = outputs[0][input_ids.shape[-1]:]
+                response_ids = outputs[0][input_ids["input_ids"].shape[-1]:]
                 response = tokenizer.decode(response_ids, skip_special_tokens=True)
                 response = response.strip()
                 if response.lower().startswith("atomic facts"):

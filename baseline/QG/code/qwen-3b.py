@@ -66,12 +66,12 @@ def main():
                 
                 with torch.no_grad():
                     outputs = model.generate(
-                        input_ids,
+                        input_ids["input_ids"],
                         max_new_tokens=1024,
                         eos_token_id=tokenizer.eos_token_id,
                     )
 
-                response = outputs[0][input_ids.shape[-1]:]
+                response = outputs[0][input_ids["input_ids"].shape[-1]:]
                 generated_questions = tokenizer.decode(response, skip_special_tokens=True)
 
                 if generated_questions:
