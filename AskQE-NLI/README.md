@@ -24,9 +24,8 @@ This helps evaluate whether the translation retains the semantic meaning of the 
 
 Here is an example:
 
-<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f" />
 
-![Example of NLI](["./path/to/your/image.png](https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f")
 ---
 
 ## Project Structure
