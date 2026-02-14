@@ -48,7 +48,9 @@ ASKQE-BASELINE/
 
 ### Question Generation
 ```python
-!python QG/code/qwen-3b.py --output_path <output_file> --prompt <prompt_type>
+python QG/code/qwen-3b.py \
+--output_path <output_file> \
+--prompt <prompt_type>
 ```
 Arguments for the QG code are as follows:
 - --output_path: save path of output file (after question generation).
@@ -57,13 +59,18 @@ Arguments for the QG code are as follows:
 ### Back-translation
 Since the BioMQM dataset already provides MT outputs with error annotations, we only have to run backtranslation on those.
 ```python
-python backtranslation.py --input_path <input_file> --output_path <output_file> 
+python backtranslation.py \
+--input_path <input_file> \
+--output_path <output_file> 
 ```
 
 ### Question Answering
 
 ```python
-python QA/code/qwen-3b-noanswer.py --input_path <input_file> --output_path <output_file> --sentence_type <sentence_type>
+python QA/code/qwen-3b-noanswer.py \
+--input_path <input_file> \
+--output_path <output_file> \
+--sentence_type <sentence_type>
 ```
 Where `sentence_type` can be src / bt_tgt. This script must be ran with both configurations to obtain answers both on source text and backtranslated text.
 
