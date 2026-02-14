@@ -4,26 +4,25 @@ import pandas as pd
 import numpy as np
 import argparse
 
-def compare(input_sbert, input_f1, output_grouped, output_global): 
+def compare(input_file, output_grouped, output_global): 
     results = []
 
-    with open(input_sbert, "r", encoding="utf-8") as f_sbert, open(input_f1, "r", encoding="utf-8") as f_f1:
-        for line_sbert, line_f1 in zip(f_sbert, f_f1):
+    with open(input_file, "r", encoding="utf-8") as f_nli:
+        for line in f_nli:
             try:
-                sbert_data = json.loads(line_sbert)
-                f1_data = json.loads(line_f1)
+                data = json.loads(line)
 
-                results.append({"Language": f"{f1_data['lang_src']}-{f1_data['lang_tgt']}",
-                        "Severity": f1_data["severity"],
-                        "F1": f1_data["avg_f1"],
-                        "EM": f1_data["avg_em"],
-                        "CHRF": f1_data["avg_chrf"],
-                        "BLEU": f1_data["avg_bleu"],
-                        "SBERT": sbert_data["avg_cos_similarity"]}
-                        )
+                results.append({"Language": f"{data['lang_src']}-{data['lang_tgt']}",
+                        "Severity": data["severity"],
+                        "F1": data["avg_f1"],
+                        "EM": data["avg_em"],
+                        "CHRF": data["avg_chrf"],
+                        "BLEU": data["avg_bleu"],
+                        "SBERT": data["avg_cos_similarity"],
+                        "NLI": data["avg_nli"]})
                 
             except json.JSONDecodeError as e:
-                print(f"Skipping invalid JSON line: ", e)
+                print(f"Skipping invalid JSON line: {line.strip()}")
                 continue
 
     df = pd.DataFrame(results)
@@ -38,18 +37,19 @@ def compare(input_sbert, input_f1, output_grouped, output_global):
     # Global summary
     numeric_columns = ["F1", "EM", "CHRF", "BLEU", "SBERT"]
     global_summary = df[numeric_columns].mean()
-    global_summary.to_csv(output_global, index=True, encoding="utf-8")
+    global_summary_df = pd.DataFrame({
+        "Metric": global_summary.index,   
+        "Avg score": global_summary.values  })
+    global_summary_df.to_csv(output_global, header=True, index=True, encoding="utf-8")
     print("GLOBAL summary:")
-    print(global_summary)
-
+    print(global_summary_df)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input_sbert', type=str, required=True)
-    parser.add_argument('--input_f1', type=str, required=True)
+    parser.add_argument('--input', type=str, required=True)
     parser.add_argument('--output_grouped', type=str, required=True)
     parser.add_argument('--output_global', type=str, required=True)
     
     args = parser.parse_args()
     
-    compare(args.input_sbert, args.input_f1, args.output_grouped, args.output_global)
+    compare(args.input, args.output_grouped, args.output_global)

@@ -6,8 +6,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 model_id = "Qwen/Qwen2.5-3B-Instruct"   
 
-input_file = f"dev_with_backtranslation.jsonl"
-output_file = f"askqe_atomic_facts.jsonl"
+input_file = "dev_with_backtranslation.jsonl"
+output_file = "askqe_atomic_facts.jsonl"
 
 def main():
     # =========================================== LLM Setup ===========================================

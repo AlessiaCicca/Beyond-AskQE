@@ -35,11 +35,14 @@ def compare(input_file, output_grouped, output_global):
     print(summary)
 
     # Global summary
-    numeric_columns = ["F1", "EM", "CHRF", "BLEU", "SBERT"]
+    numeric_columns = ["F1", "EM", "CHRF", "BLEU", "SBERT", "NLI"]
     global_summary = df[numeric_columns].mean()
-    global_summary.to_csv(output_global, index=True, encoding="utf-8")
+    global_summary_df = pd.DataFrame({
+        "Metric": global_summary.index,   
+        "Avg score": global_summary.values  })
+    global_summary_df.to_csv(output_global, header=True, index=True, encoding="utf-8")
     print("GLOBAL summary:")
-    print(global_summary)
+    print(global_summary_df)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

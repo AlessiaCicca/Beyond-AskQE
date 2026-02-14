@@ -21,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_path", type=str) 
     parser.add_argument("--output_path", type=str) 
-    parser.add_argument("--sentence_type", type=str) #src/bt_tgt
+    parser.add_argument("--sentence_type", type=str) #src/tgt_gt
 
     args = parser.parse_args()
 
