@@ -136,7 +136,7 @@ def main():
             fout.write(json.dumps(out_record, ensure_ascii=False) + "\n")
             fout.flush()
 
-            print(sid, "→", len(entailed), "/", len(facts), "entailed")
+            print(sid, ":", len(entailed), "/", len(facts), "entailed")
 
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
