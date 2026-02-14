@@ -23,7 +23,8 @@ The NLI model checks for entailment, contradiction, or neutrality between the pr
 This helps evaluate whether the translation retains the semantic meaning of the source answer or if there are discrepancies in meaning.
 
 Here is an example:
-<img width="100" height="200" alt="image" src="https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f" />
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/5e1f9cf7-7ce6-4491-96e3-ffab5b322a8f" />
 
 ---
 
