@@ -46,8 +46,10 @@ def main():
             preds = data.get("answers_summary", [])
             refs = data.get("answers_source", [])
 
-            if not preds or not refs or len(preds) != len(refs):
-                continue
+            max_len = max(len(preds), len(refs))
+
+            preds = preds + ["NOT_FOUND"] * (max_len - len(preds))
+            refs  = refs  + ["NOT_FOUND"] * (max_len - len(refs))
 
             row_scores = []
             f1s, ems, chrfs, bleus = [], [], [], []
