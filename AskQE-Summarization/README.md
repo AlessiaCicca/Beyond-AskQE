@@ -32,7 +32,18 @@ NLI Filtering: ```roberta-large-mnli```
 Semantic Similarity: ```sentence-transformers/all-MiniLM-L6-v2```
 
 ## Structure
-
+### Project Structure
+```
+Beyond-AskQE/AskQE-Summarization
+├── atomic_facts/          # Atomic fact extraction from source documents
+├── NLI/                   # NLI filtering of atomic facts
+├── QG/                    # Question Generation from filtered facts
+├── QA/                    # Question Answering over sources and summaries
+├── evaluation/            # Lexical and semantic evaluation
+├── data/                  # Input articles and generated summaries
+├── requirements.txt       # Python dependencies
+└── README.md              # Project documentation
+```
 ### PubMed Summarization with DistilBART
 This script generates abstractive summaries for PubMed articles using `sshleifer/distilbart-cnn-12-6`.
 
