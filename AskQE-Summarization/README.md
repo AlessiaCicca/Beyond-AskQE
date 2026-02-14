@@ -1,4 +1,4 @@
-# AskQE-for-summarization
+# AskQE-Summarization
 
 Adaptation of the AskQE framework to the task of summarization, rather than machine translation. This repository provides scripts to:
 - generate abstractive summaries for PubMed articles,
