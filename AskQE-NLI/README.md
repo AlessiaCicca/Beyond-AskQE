@@ -37,6 +37,7 @@ ASKQE-BASELINE/
 ├── QA/                            #Scripts for Question Answering
 ├── QG/                            #Scripts for Question Answering  
 ├── evaluation/                    # Scripts for evaluation assessment (including NLI pipeline)
+├── ouput/                         # Output files with aggregated avg metric scores
 ├── backtranslation.py             # Backtranslation with Google Translate
 ├── dev_with_backtranslation.py    # BioMQM dataset used in the original paper
 ├── requirements.txt               # Requirements
