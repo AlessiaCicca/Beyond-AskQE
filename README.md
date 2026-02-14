@@ -56,7 +56,7 @@ Unlike the large LLMs used in the original paper, this repository leverages a sm
 <p align="center">
   <img src="askqe.png" width="80%" />
 </p>
-
+![Overview of the ASKQE system](askqe.png)
 
 ## Core Idea
 Monolingual source speakers cannot effectively evaluate machine translation (MT) quality in languages they don’t understand, and existing quality estimation (QE) methods fail to address this by offering hard-to-interpret scores 
