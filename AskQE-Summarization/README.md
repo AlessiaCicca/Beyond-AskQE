@@ -9,6 +9,9 @@ Adaptation of the AskQE framework to the task of summarization, rather than mach
 
 Purpose: evaluate whether key facts in source documents are preserved in generated summaries.
 
+!![Overview of the AskQE for summarization](summary.png)
+
+
 ## Dataset
 
 We use a subset of the```ccdv/pubmed-summarization``` dataset.
