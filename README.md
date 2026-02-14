@@ -1,7 +1,7 @@
 # Beyond AskQE: Expanding to Summarization and Enhancing MT Quality Estimation via NLI, Multi-Turn Questioning, and Hallucination Detection
 
 
-## Overview
+
 This research extends the AskQE framework for evaluating machine translation (MT) quality through question generation and answering. The original framework compares answers from source sentences and their backtranslated outputs to enable monolingual quality assessment.
 
 ## Problem Statement
