@@ -20,7 +20,7 @@ The NLI model checks for entailment, contradiction, or neutrality between the pr
 
 - *Neutral*: The hypothesis is neither entailed nor contradictory to the premise, meaning the translation may be ambiguous or unclear.
 
-This helps evaluate whether the translation retains the semantic meaning of the source answer or if there are discrepancies in meaning.
+This helps evaluate whether the translation retains the semantic meaning of the source senntence or if there are discrepancies in meaning.
 
 Here is an example:
 
