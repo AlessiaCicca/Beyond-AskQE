@@ -19,7 +19,7 @@ Each instance originally contains:
 
 - abstract: gold summary
 
-For methodological and computational reasons, we retain only the first 800 tokens of each article. Summaries are generated from this truncated input to ensure alignment between source and summary.
+Processing full-length biomedical articles would require document segmentation, which may introduce fact-question misalignment. We therefore restrict the input to the first 800 tokens to maintain contextual coherence. Summaries are generated from this truncated input to ensure alignment between source and summary, avoiding comparison against gold abstracts that may contain not present information. 
 
 ## Models Used
 
@@ -38,8 +38,8 @@ This script generates abstractive summaries for PubMed articles using `sshleifer
 
 Clone repository and install dependencies:
 ```bash
-!git clone https://github.com/ilariaparodi/AskQE-for-summarization.git
-cd AskQE-for-summarization
+!git clone https://github.com/AlessiaCicca/Beyond-AskQE.git
+cd Beyond-AskQE/AskQE-for-summarization
 !pip install -r requirements.txt
 ```
 Usage:
