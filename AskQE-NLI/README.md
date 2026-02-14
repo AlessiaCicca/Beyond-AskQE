@@ -2,7 +2,7 @@
 
 ### Description
 This repository introduces an extension to the AskQE framework to evaluate translations using **Natural Language Inference** (NLI). 
-Inspired by prior work, specifically the paper [here]([https://aclanthology.org/2021.emnlp-main.619.pdf](https://arxiv.org/abs/2104.08202)), we implement an NLI pipeline to assess the quality of translation outputs by 
+Inspired by prior work, specifically the paper [here](https://arxiv.org/abs/2104.08202)), we implement an NLI pipeline to assess the quality of translation outputs by 
 comparing the answers from the source (SRC) and backtranslated text (BT).
 
 ## Core Idea
