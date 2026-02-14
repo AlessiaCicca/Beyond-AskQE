@@ -53,7 +53,9 @@ This work builds upon the AskQE framework introduced by Ki et al. (2025), which 
 
 Unlike the large LLMs used in the original paper, this repository leverages a smaller LLM, `Qwen2.5-3B-Instruct`, to demonstrate the framework's efficiency in quality estimation tasks while maintaining computational feasibility.
 
-![Overview of the ASKQE system](askqe.png)
+<p align="center">
+  <img src="askqe.png" width="80%" />
+</p>
 
 
 ## Core Idea
