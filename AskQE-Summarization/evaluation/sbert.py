@@ -54,8 +54,10 @@ def main():
             preds = data.get("answers_summary", [])
             refs = data.get("answers_source", [])
 
-            if not preds or not refs or len(preds) != len(refs):
-                continue
+            max_len = max(len(preds), len(refs))
+
+            preds = preds + ["NOT_FOUND"] * (max_len - len(preds))
+            refs  = refs  + ["NOT_FOUND"] * (max_len - len(refs))
 
             cos_list = []
             scores = []
@@ -86,17 +88,9 @@ def main():
                     out_pred = model(**enc_pred)
                     out_ref = model(**enc_ref)
 
-                emb_pred = F.normalize(
-                    mean_pooling(out_pred, enc_pred["attention_mask"]),
-                    p=2,
-                    dim=1
-                )
+                emb_pred = F.normalize(mean_pooling(out_pred, enc_pred["attention_mask"]), p=2, dim=1)
 
-                emb_ref = F.normalize(
-                    mean_pooling(out_ref, enc_ref["attention_mask"]),
-                    p=2,
-                    dim=1
-                )
+                emb_ref = F.normalize(mean_pooling(out_ref, enc_ref["attention_mask"]), p=2, dim=1)
 
                 cos = F.cosine_similarity(emb_pred, emb_ref).item()
 
