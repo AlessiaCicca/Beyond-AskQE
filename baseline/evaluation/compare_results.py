@@ -18,8 +18,7 @@ def compare(input_file, output_grouped, output_global):
                         "EM": data["avg_em"],
                         "CHRF": data["avg_chrf"],
                         "BLEU": data["avg_bleu"],
-                        "SBERT": data["avg_cos_similarity"],
-                        "NLI": data["avg_nli"]})
+                        "SBERT": data["avg_cos_similarity"])
                 
             except json.JSONDecodeError as e:
                 print(f"Skipping invalid JSON line: {line.strip()}")
