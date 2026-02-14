@@ -19,7 +19,7 @@ Current MT quality estimation methods produce either difficult-to-interpret scal
 - Uses Natural Language Inference (RoBERTa-large-MNLI) to assess factual consistency
 - Assigns binary entailment scores (1 for entailment, 0 for contradiction)
 - Retains F1 scores for neutral cases
-- **Result**: Improved decision accuracy from 47.34% to 56.99%
+- **Result**: Improved decision accuracy from 55.13% (F1 score) to 63.97% (NLI score) in the baseline setting.
 
 ### B. Multi-Turn Questioning
 - Iterative follow-up questions across multiple rounds (Nturn iterations)
