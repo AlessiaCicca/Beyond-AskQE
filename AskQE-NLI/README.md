@@ -69,7 +69,7 @@ Where `sentence_type` can be src / bt_tgt. This script must be ran with both con
 
 ### Evaluation
 
-### Basic evaluation: sbert.py and string-comparison.py
+#### Basic evaluation: sbert.py and string-comparison.py
 
 These scripts compute the similarity scores for each pair of `answer_src` and `answer_bt` related to one question, along with the average similarity among all answers for a sentence.
 While `sbert.py` focuses on calculating cosine similarity, `stringcomparison.py` extends this by calculating the four usual metrics for string comparison: F1, BLEU, ChrF, and EM. 
