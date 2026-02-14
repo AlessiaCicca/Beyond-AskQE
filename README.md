@@ -1,8 +1,58 @@
-# ASKQE: AskQE: Question Answering as Automatic Evaluation for Machine Translation
+# Beyond AskQE: Expanding to Summarization and Enhancing MT Quality Estimation via NLI, Multi-Turn Questioning, and Hallucination Detection
 
-### Description
-This repository provides baseline implementations and evaluation scripts for applying the **ASKQE framework** (Ki, Duh, and Carpuat) to perform Machine Translation (MT) quality estimation on the BioMQM dataset, utilizing a **small LLM** for Question Answering (QA) and Question Generation (QG).
-Unlike the large LLMs used in the original paper, this repository leverages a smaller LLM, `Qwen2.5-3B-Instruct`, to demonstrate the framework’s efficiency in quality estimation tasks while maintaining computational feasibility.
+
+## Overview
+This research extends the AskQE framework for evaluating machine translation (MT) quality through question generation and answering. The original framework compares answers from source sentences and their backtranslated outputs to enable monolingual quality assessment.
+
+## Problem Statement
+Current MT quality estimation methods produce either difficult-to-interpret scalar scores or target-language annotations inaccessible to monolingual users. This gap is critical in high-stakes domains like healthcare, where source-language speakers need actionable feedback without understanding the target language.
+
+## Key Limitations Addressed
+1. **Semantic nuance handling**: Treating semantically similar but factually distinct answers as equivalent
+2. **Shallow evaluation**: Missing errors requiring deeper probing
+3. **Hallucination detection**: Failing to identify when translations introduce incorrect information
+4. **Limited scope**: Restricted to MT evaluation only
+
+## Four Main Extensions
+
+### A. NLI-Based Answer Comparison
+- Uses Natural Language Inference (RoBERTa-large-MNLI) to assess factual consistency
+- Assigns binary entailment scores (1 for entailment, 0 for contradiction)
+- Retains F1 scores for neutral cases
+- **Result**: Improved decision accuracy from 47.34% to 56.99%
+
+### B. Multi-Turn Questioning
+- Iterative follow-up questions across multiple rounds (Nturn iterations)
+- Each round builds on previous responses for deeper semantic analysis
+- Uses weighted averaging: 30% for question similarity, 70% for answer similarity
+- **Result**: Improved precision and recall, particularly with ChrF and SBERT metrics
+
+### C. Backtranslation-Based QA for Hallucination Detection
+Inverts the AskQE paradigm by generating questions from backtranslations:
+- **Unanswerable Content Rate (UCR)**: Detects facts not grounded in source (32% sentence-level detection)
+- **BERTScore filtering**: Identifies semantic mismatches
+- **Yes/No verification**: Binary validation of claims (56.25% sentence-level detection)
+
+### D. Summarization Evaluation
+Adapts framework to measure information preservation in biomedical summaries:
+- Generates questions from source documents (not summaries)
+- Evaluates: "If the document states X, is X preserved in the summary?"
+- Provides graded measurement of content coverage
+
+
+More detailed information about each extension, including implementation details, experimental setups, and additional results, can be found in the respective project folders and in the complete research paper.
+
+---
+
+
+## Baseline: Original AskQE Framework
+
+The baseline AskQE implementation can be found in the folder of the same name in this repository.
+
+This work builds upon the AskQE framework introduced by Ki et al. (2025), which pioneered the use of question answering for automatic machine translation evaluation. The baseline repository provides implementations and evaluation scripts for applying the **AskQE framework** (Ki, Duh, and Carpuat) to perform Machine Translation (MT) quality estimation on the BioMQM dataset, utilizing a **small LLM** for Question Answering (QA) and Question Generation (QG).
+
+Unlike the large LLMs used in the original paper, this repository leverages a smaller LLM, `Qwen2.5-3B-Instruct`, to demonstrate the framework's efficiency in quality estimation tasks while maintaining computational feasibility.
+
 
 ## Core Idea
 Monolingual source speakers cannot effectively evaluate machine translation (MT) quality in languages they don’t understand, and existing quality estimation (QE) methods fail to address this by offering hard-to-interpret scores 
